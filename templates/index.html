@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WAF Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #111;
+            color: #00ffcc;
+            font-family: 'Share Tech Mono', monospace;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 40px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .logout a {
+            color: #00ffcc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .logout a:hover {
+            color: red;
+        }
+
+        form {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        input, button {
+            background: #000;
+            color: #00ffcc;
+            border: 1px solid #00ffcc;
+            padding: 8px;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: #00ffcc;
+            color: black;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #00ffcc;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #1a1a1a;
+        }
+
+        a {
+            color: red;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🛡️ WAF Cyber Admin</h1>
+        <div class="logout">
+            <a href="/logout">🚪 Logout</a>
+        </div>
+    </header>
+
+    <form action="/add" method="post">
+        <input type="text" name="category" placeholder="Category" required>
+        <input type="text" name="keyword" placeholder="Keyword" required>
+        <button type="submit">➕ Add</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Keyword</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in entries %}
+            <tr>
+                <td>{{ entry[1] }}</td>
+                <td>{{ entry[2] }}</td>
+                <td><a href="/delete/{{ entry[0] }}">❌ Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

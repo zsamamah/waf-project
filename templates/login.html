@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WAF Admin Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0e0e0e;
+            color: #00ffcc;
+            font-family: 'Share Tech Mono', monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-box {
+            background-color: #1a1a1a;
+            padding: 30px;
+            border: 1px solid #00ffcc;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #00ffcc33;
+            text-align: center;
+        }
+
+        .login-box img {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        input, button {
+            font-family: inherit;
+            padding: 10px;
+            margin-top: 10px;
+            width: 100%;
+            background: #0e0e0e;
+            border: 1px solid #00ffcc;
+            color: #00ffcc;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #00ffcc;
+            color: #0e0e0e;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <img src="https://cdn-icons-png.flaticon.com/512/6062/6062649.png" alt="Cyber Shield">
+        <h2>WAF Admin Login</h2>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        <form method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
