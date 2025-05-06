@@ -1,0 +1,209 @@
+<!-- templates/statistics.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WAF Stats</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+      padding: 20px;
+    }
+
+    .dashboard {
+      max-width: 400px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .stat {
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .subtitle {
+      color: #ccc;
+      font-size: 14px;
+    }
+
+    .success {
+      color: #00ff95;
+    }
+
+    .section {
+      margin: 25px 0;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #222;
+    }
+
+    .nav-group {
+      margin-top: 30px;
+    }
+
+    .nav-group h3 {
+      font-size: 16px;
+      color: #ff4d4d;
+      margin-bottom: 10px;
+    }
+
+    .nav-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #222;
+      cursor: pointer;
+    }
+
+    .search-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #e50914;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    a.back-link {
+      display: block;
+      margin-top: 30px;
+      text-align: center;
+      color: #ff4d4d;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a.back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <h2>Web Application Firewall</h2>
+
+    <div class="section">
+      <div class="subtitle">Attacks Detected</div>
+    <div class="stat">{{ total_requests }}</div>
+    <div class="subtitle success">
+        Last 30 Days 
+        <span class="{{ 'success' if percentage_change >= 0 else 'danger' }}">
+            {{ '+' if percentage_change >= 0 else '' }}{{ percentage_change }}%
+        </span>
+    </div>
+      <!-- <img src="{{ url_for('static', filename='images/chart-placeholder.png') }}" style="margin-top: 20px; width: 100%;"> -->
+      <canvas id="attackChart" style="margin-top: 20px; width: 100%; height: 300px;"></canvas>
+
+    </div>
+
+    <div class="section">
+      <div class="row">
+        <span>Blocked Requests</span>
+        <span>{{ total_requests }}</span>
+      </div>      
+      <div class="row">
+        <span>System Status</span>
+        <span style="color: #00ff95;">Up</span>
+      </div>
+    </div>
+
+    <div class="nav-group">
+      <h3>Rules</h3>
+      <div class="nav-group">
+        <a href="/keywords" class="nav-link" style="color: inherit; text-decoration: none;">
+          <span>All Rules</span><span>&rarr;</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="nav-group">
+        <h3>Logs</h3>
+        <a href="/logs" class="nav-link" style="color: inherit; text-decoration: none;">
+          <span>View Logs</span><span>&rarr;</span>
+        </a>
+      </div>
+      
+
+    <div class="nav-group">
+      <h3>Settings</h3>
+      <div class="nav-link">
+        <a href="/" class="nav-link" style="color: inherit; text-decoration: none;">
+          <span>Account Settings</span><span>&rarr;</span>
+        </a>
+      </div>
+      <a href="{{ url_for('logout') }}" class="nav-link" style="color: #fff;">
+        <span>Logout</span><span>&rarr;</span>
+      </a>
+    </div>
+    <a href="/keywords" class="back-link">&larr; Back to Dashboard</a>
+
+  </div>
+
+  <div class="search-btn">🔍</div>
+</body>  
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('attackChart').getContext('2d');
+  const attackChart = new Chart(ctx, {
+    type: 'line', // or 'bar'
+    data: {
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], // Example days
+      datasets: [{
+        label: 'Blocked Requests',
+        data: [300, 450, 320, 500, 600, 700, 800], // Example data
+        backgroundColor: 'rgba(255, 77, 77, 0.2)',
+        borderColor: '#ff4d4d',
+        borderWidth: 2,
+        fill: true,
+        tension: 0.3,
+        pointBackgroundColor: '#fff',
+        pointRadius: 4
+      }]
+    },
+    options: {
+      plugins: {
+        legend: {
+          labels: {
+            color: '#ccc'
+          }
+        }
+      },
+      scales: {
+        x: {
+          ticks: { color: '#ccc' },
+          grid: { color: '#222' }
+        },
+        y: {
+          ticks: { color: '#ccc' },
+          grid: { color: '#222' }
+        }
+      }
+    }
+  });
+</script>
+
+
+
+</html>

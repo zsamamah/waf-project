@@ -1,0 +1,97 @@
+[2025-04-11 20:35:19] Blocked host: www.facebook.com, matched keyword: facebook
+[2025-04-11 20:35:19] Blocked host: www.facebook.com, matched keyword: facebook
+[2025-04-11 20:43:53] Blocked host: web.whatsapp.com, matched keyword: whatsapp
+[2025-04-11 20:43:53] Blocked host: web.whatsapp.com, matched keyword: whatsapp
+[2025-04-11 20:49:15] Blocked host: web.whatsapp.com, matched keyword: whatsapp
+[2025-04-11 20:49:15] Blocked host: web.whatsapp.com, matched keyword: whatsapp
+[2025-04-11 21:10:47] Blocked host: web.whatsapp.com, matched keyword: whatsapp
+[2025-04-11 21:10:47] Blocked host: web.whatsapp.com, matched keyword: whatsapp
+[2025-04-11 21:36:58] Blocked host: web.whatsapp.com, matched keyword: whatsapp
+[2025-04-11 21:36:58] Blocked host: web.whatsapp.com, matched keyword: whatsapp
+[2025-04-11 21:42:09] Blocked host: cdn.confiant-integrations.net, matched keyword: rat
+[2025-04-11 21:42:11] Blocked host: visitor.omnitagjs.com, matched keyword: tor
+[2025-04-11 21:42:15] Blocked host: storage.ml-cachehost.net, matched keyword: tor
+[2025-04-11 21:42:16] Blocked host: exchange.cootlogix.com, matched keyword: hang
+[2025-04-11 21:42:17] Blocked host: visitor.omnitagjs.com, matched keyword: tor
+[2025-04-11 21:42:19] Blocked host: exchange.cootlogix.com, matched keyword: hang
+[2025-04-11 21:42:50] Blocked host: www.facebook.com, matched keyword: facebook
+[2025-04-11 21:42:50] Blocked host: www.facebook.com, matched keyword: facebook
+[2025-04-11 21:42:58] Blocked host: www.facebook.com, matched keyword: facebook
+[2025-04-11 21:42:58] Blocked host: www.facebook.com, matched keyword: facebook
+[2025-04-11 21:43:00] Blocked host: www.facebook.com, matched keyword: facebook
+[2025-04-11 21:43:00] Blocked host: www.facebook.com, matched keyword: facebook
+[2025-04-11 21:44:12] Blocked host: www.facebook.com, matched keyword: facebook
+[2025-04-11 21:44:12] Blocked host: www.facebook.com, matched keyword: facebook
+[2025-04-11 21:50:57] Blocked host: www.facebook.com, matched keyword: facebook
+[2025-04-11 21:50:59] Blocked host: www.facebook.com, matched keyword: facebook
+[2025-04-11 21:50:59] Blocked host: www.facebook.com, matched keyword: facebook
+[2025-04-11 21:50:59] Blocked host: www.facebook.com, matched keyword: facebook
+[2025-04-11 21:50:59] Blocked host: www.facebook.com, matched keyword: facebook
+[2025-04-11 21:50:59] Blocked host: www.facebook.com, matched keyword: facebook
+[2025-04-11 21:52:00] Blocked: Blocked Keyword, Detail: Host: www.facebook.com, Keyword: facebook
+[2025-04-11 21:52:01] Blocked: Blocked Keyword, Detail: Host: www.facebook.com, Keyword: facebook
+[2025-04-11 21:52:27] Blocked: Blocked Keyword, Detail: Host: www.facebook.com, Keyword: facebook
+[2025-04-11 21:52:49] Blocked: Blocked Keyword, Detail: Host: connect.facebook.net, Keyword: facebook
+[2025-04-11 21:52:52] Blocked: Blocked Keyword, Detail: Host: connect.facebook.net, Keyword: facebook
+[2025-04-11 21:54:45] Blocked: Blocked Keyword, Detail: Host: connect.facebook.net, Keyword: facebook
+[2025-04-11 21:54:46] Blocked: Blocked Keyword, Detail: Host: connect.facebook.net, Keyword: facebook
+[2025-04-11 21:54:46] Blocked: Blocked Keyword, Detail: Host: static.ads-twitter.com, Keyword: twitter
+[2025-04-11 21:54:48] Blocked: Blocked Keyword, Detail: Host: connect.facebook.net, Keyword: facebook
+[2025-04-11 21:56:49] Blocked: Blocked Keyword, Detail: connect.facebook.net matched facebook
+[2025-04-11 21:56:50] Blocked: Blocked Keyword, Detail: connect.facebook.net matched facebook
+[2025-04-11 21:56:51] Blocked: Blocked Keyword, Detail: static.ads-twitter.com matched twitter
+[2025-04-11 21:56:53] Blocked: Blocked Keyword, Detail: connect.facebook.net matched facebook
+[2025-04-11 21:57:33] Blocked: Blocked Keyword, Detail: connect.facebook.net matched facebook
+[2025-04-11 21:57:38] Blocked: Blocked Keyword, Detail: connect.facebook.net matched facebook
+[2025-04-11 21:57:44] Blocked: Blocked Keyword, Detail: connect.facebook.net matched facebook
+[2025-04-11 22:00:35] Blocked: Blocked XSS, Detail: Suspicious URL: https://arabiemart.com/search?featured_products=%3cscript%3ealert(1)%3c/script%3e
+[2025-04-11 22:00:59] Blocked: Blocked Keyword, Detail: connect.facebook.net matched facebook
+[2025-04-11 22:01:50] Blocked: Blocked XSS, Detail: Suspicious URL: https://arabiemart.com/search?featured_products=%27
+[2025-04-11 22:03:11] Blocked: Blocked SQL Injection, Detail: Suspicious URL: https://arabiemart.com/search?featured_products=%27
+[2025-04-11 22:03:16] Blocked: Blocked Keyword, Detail: www.facebook.com matched facebook
+[2025-04-11 22:03:16] Blocked: Blocked Keyword, Detail: www.facebook.com matched facebook
+[2025-04-11 22:03:35] Blocked: Blocked SQL Injection, Detail: Suspicious URL: https://arabiemart.com/search?featured_products=%22
+[2025-04-11 22:03:45] Blocked: Blocked SQL Injection, Detail: Suspicious URL: https://arabiemart.com/search?featured_products=%22
+[2025-04-11 22:03:53] Blocked: Blocked SQL Injection, Detail: Suspicious URL: https://arabiemart.com/search?featured_products=%22
+[2025-04-11 22:04:00] Blocked: Blocked SQL Injection, Detail: Suspicious URL: https://arabiemart.com/search?featured_products=%27
+[2025-04-11 22:04:12] Blocked: Blocked XSS, Detail: Suspicious URL: https://arabiemart.com/search?featured_products=%3cscript%3ealert(1)%3c/script%3e
+[2025-04-11 22:05:00] Blocked: Blocked Keyword, Detail: connect.facebook.net matched facebook
+[2025-04-11 22:05:05] Blocked: Blocked Keyword, Detail: connect.facebook.net matched facebook
+[2025-04-11 22:05:29] Blocked: Blocked XSS, Detail: Suspicious URL: https://arabiemart.com/search?featured_products=%3cscript%3ealert(1)%3c/script%3e
+[2025-04-11 22:05:44] Blocked: Blocked SQL Injection, Detail: Suspicious URL: https://arabiemart.com/search?featured_products=%27
+[2025-04-11 22:05:49] Blocked: Blocked SQL Injection, Detail: Suspicious URL: https://arabiemart.com/search?featured_products=%22
+[2025-04-11 22:06:53] Blocked: Blocked SQL Injection, Detail: Suspicious URL: https://arabiemart.com/search?featured_products=1%27%20order%20by%201--+
+[2025-04-11 22:07:10] Blocked: Blocked SQL Injection, Detail: Suspicious URL: https://arabiemart.com/search?featured_products=%27));waitfor%20delay%20%270:0:5%27--
+[2025-04-11 22:07:40] Blocked: Blocked XSS, Detail: Suspicious URL: https://arabiemart.com/search?featured_products=%3cscript\x20type=%22text/javascript%22%3ejavascript:alert(1);%3c/script%3e
+[2025-04-11 22:07:48] Blocked: Blocked XSS, Detail: Suspicious URL: https://arabiemart.com/search?featured_products=%3cscript\x3etype=%22text/javascript%22%3ejavascript:alert(1);%3c/script%3e
+[2025-04-11 22:09:01] Blocked: Blocked SQL Injection, Detail: Suspicious URL: https://arabiemart.com/search?featured_products=union%20all%20select%20%27inj%27||%27ect%27||%27xxx%27,2,3,4,5,6,7--
+[2025-04-11 22:11:10] Blocked: Blocked Keyword, Detail: connect.facebook.net matched facebook
+[2025-04-11 22:11:25] Blocked: Blocked Keyword, Detail: arabiemart.com matched arabiemart
+[2025-04-11 22:24:54] Blocked: Blocked Keyword, Detail: arabiemart.com matched arabiemart
+[2025-04-11 22:25:05] Blocked: Blocked Keyword, Detail: connect.facebook.net matched facebook
+[2025-04-11 22:25:35] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-11 22:25:35] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-11 22:25:35] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-11 22:25:35] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-11 22:25:35] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-11 22:25:35] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-11 22:25:35] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-11 22:25:35] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-11 22:25:35] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-11 22:25:35] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-25 21:46:10] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-25 21:46:10] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-25 21:46:10] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-25 21:48:36] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-25 21:48:36] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-25 21:48:36] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-25 21:48:36] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-25 21:48:36] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-25 21:48:36] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-25 21:48:36] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-25 21:48:36] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-25 21:48:36] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-25 21:48:36] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-29 23:09:29] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-29 23:09:30] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec
+[2025-04-29 23:09:30] Blocked: Blocked Keyword, Detail: will-sec.com matched will-sec

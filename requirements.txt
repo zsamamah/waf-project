@@ -1,2 +1,4 @@
 flask
 requests
+mitmproxy
+sqlite3

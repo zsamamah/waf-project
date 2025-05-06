@@ -1,9 +1,11 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 import sqlite3
 import os
+from collections import Counter
+from datetime import datetime, timedelta
 
 app = Flask(__name__)
-app.secret_key = "your-secret-key"  # 🔐 Replace with a strong secret key
+app.secret_key = "your-secret-key"
 DB_PATH = "blocklist.db"
 
 USERNAME = "admin"
@@ -46,35 +48,126 @@ def delete_entry(entry_id):
     conn.close()
 
 # --- Auth ---
-@app.route("/login", methods=["GET", "POST"])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == "POST":
-        if request.form["username"] == USERNAME and request.form["password"] == PASSWORD:
-            session["logged_in"] = True
-            return redirect(url_for("index"))
-        return render_template("login.html", error="Invalid credentials")
-    return render_template("login.html")
+    if 'user' in session:
+        return redirect('/keywords')  # Redirect to /keywords if user is already logged in
 
-@app.route("/logout")
+    if request.method == 'POST':
+        user = request.form['username'] # test 
+        pwd = request.form['password'] # test
+        if user == USERNAME and pwd == PASSWORD:
+            session['user'] = user
+            return redirect('/index')
+        else:
+            flash('Invalid credentials', 'danger')
+            return redirect(url_for('login'))
+
+    return render_template('login.html')
+
+@app.route('/logout')
 def logout():
-    session.clear()
-    return redirect(url_for("login"))
+    session.pop('user', None)
+    return redirect(url_for('home'))
 
 def login_required(route_func):
     from functools import wraps
     @wraps(route_func)
     def wrapper(*args, **kwargs):
-        if not session.get("logged_in"):
+        if not session.get("user"):
             return redirect(url_for("login"))
         return route_func(*args, **kwargs)
     return wrapper
 
 # --- Main Routes ---
-@app.route("/")
+# Landing Page
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+@app.route('/keywords')
 @login_required
-def index():
+def keywords():
     entries = get_all_entries()
-    return render_template("index.html", entries=entries)
+    return render_template("keywords.html", entries=entries)
+
+# WAF Management Dashboard (Protected)
+@app.route('/index')
+def index():
+    if 'user' not in session:
+        flash('You must be logged in to access the WAF dashboard.', 'warning')
+        return redirect(url_for('login'))
+    else:
+        return redirect('/keywords')
+    
+@app.route("/stats")
+@login_required
+def statistics():
+    log_path = "waf_block_log.txt"
+    date_counts = Counter()
+    total_requests = 0
+    last_30_days_requests = 0
+    prev_30_days_requests = 0
+
+    try:
+        with open(log_path, "r") as f:
+            logs = f.readlines()
+
+        # Total requests (all-time count)
+        total_requests = len(logs)
+
+        # Current and previous 30 days calculation
+        now = datetime.now()
+        for line in logs:
+            if line.strip():
+                timestamp_str = line.split("]")[0][1:]
+                try:
+                    dt = datetime.strptime(timestamp_str, "%Y-%m-%d %H:%M:%S")
+                    if dt >= now - timedelta(days=30):
+                        last_30_days_requests += 1
+                    if dt >= now - timedelta(days=60) and dt < now - timedelta(days=30):
+                        prev_30_days_requests += 1
+                except:
+                    continue
+
+        # Percentage change for last 30 days
+        if prev_30_days_requests > 0:
+            percentage_change = ((last_30_days_requests - prev_30_days_requests) / prev_30_days_requests) * 100
+        else:
+            percentage_change = 0
+
+    except FileNotFoundError:
+        total_requests = 0
+        last_30_days_requests = 0
+        prev_30_days_requests = 0
+        percentage_change = 0
+
+    # Sorting the dates for chart data
+    sorted_dates = sorted(date_counts.items())
+    labels = [date for date, _ in sorted_dates]
+    values = [count for _, count in sorted_dates]
+
+    return render_template(
+        "statistics.html",
+        labels=labels,
+        values=values,
+        total_requests=total_requests,
+        last_30_days_requests=last_30_days_requests,
+        percentage_change=round(percentage_change, 2)  # Round for better display
+    )
+
+
+@app.route("/logs")
+@login_required
+def view_logs():
+    log_path = "waf_block_log.txt"
+    logs = []
+    try:
+        with open(log_path, "r") as f:
+            logs = f.readlines()[-100:]  # Limit to last 100 entries
+    except FileNotFoundError:
+        logs = ["Log file not found."]
+    return render_template("logs.html", logs=[line.strip() for line in logs])
 
 @app.route("/add", methods=["POST"])
 @login_required

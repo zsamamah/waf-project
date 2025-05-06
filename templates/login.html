@@ -1,72 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>WAF Admin Login</title>
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background-color: #0e0e0e;
-            color: #00ffcc;
-            font-family: 'Share Tech Mono', monospace;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
+  <meta charset="UTF-8">
+  <title>WAF Admin Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #0d0d0d;
+      font-family: 'Inter', sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-        .login-box {
-            background-color: #1a1a1a;
-            padding: 30px;
-            border: 1px solid #00ffcc;
-            border-radius: 10px;
-            box-shadow: 0 0 20px #00ffcc33;
-            text-align: center;
-        }
+    .container {
+      background: #131313;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
 
-        .login-box img {
-            width: 100px;
-            margin-bottom: 20px;
-        }
+    .container img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
 
-        input, button {
-            font-family: inherit;
-            padding: 10px;
-            margin-top: 10px;
-            width: 100%;
-            background: #0e0e0e;
-            border: 1px solid #00ffcc;
-            color: #00ffcc;
-            border-radius: 5px;
-        }
+    h2 {
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
 
-        button:hover {
-            background: #00ffcc;
-            color: #0e0e0e;
-            cursor: pointer;
-            font-weight: bold;
-        }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      background: #1f1f1f;
+      border: 1px solid #333;
+      border-radius: 6px;
+      color: #fff;
+    }
 
-        .error {
-            color: red;
-            margin-top: 10px;
-        }
-    </style>
+    button {
+      background-color: #e63946;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      width: 100%;
+      font-weight: 600;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff4d4d;
+    }
+
+    .error {
+      color: #ff6b6b;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
-    <div class="login-box">
-        <img src="https://cdn-icons-png.flaticon.com/512/6062/6062649.png" alt="Cyber Shield">
-        <h2>WAF Admin Login</h2>
-        {% if error %}
-            <p class="error">{{ error }}</p>
+  <div class="container">
+    <img src="https://cdn-icons-png.flaticon.com/512/6918/6918020.png" alt="Cyber Lock">
+    <h2>Welcome to WAF Security</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash danger" style="background-color: red; padding: 1em;">
+                {% for message in messages %}
+                    {{ message[1] }}  <!-- Display the message text -->
+                {% endfor %}
+            </div>
         {% endif %}
-        <form method="post">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
-    </div>
+    {% endwith %}
+    
+    <form method="post">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Sign in</button>
+    </form>
+  </div>
 </body>
 </html>
